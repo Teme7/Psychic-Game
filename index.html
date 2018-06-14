@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>    
-    <meta charset="UT-8">
-    <title>Tutorial</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Psychic Game</title>
+        <link rel="stylesheet" href="assets/css/reset.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
+    </head>
+    <body>
+        <h1>The Psychic Game</h1>
 
-<body>
-    <script type="text/javascript" src="assets/javascript/game.js">
+        <h4>Guess what letter I'm thinking of</h4>
+        <h4>Wins</h4>
+        <h4>Losses</h4>
+        <h4>Guesses left</h4>
+        <h4>Your guesses so far</h4>
         
-        </script>
-</body>
+        <script src="assets/javascript/game.js">
+            
+            // Guess what letter I'm thinking of
 
+            // Wins: (# of times the user has guessed the letter correctly)
+
+            // Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
+
+            // Guesses Left: (# of guesses left. This will update)
+
+            // Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)
+
+            // When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
+
+            // When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins). 
+            
+            </script>
+    </body>
 </html>
