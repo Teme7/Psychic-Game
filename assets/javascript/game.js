@@ -1,7 +1,7 @@
-var first = "second";
+var first = "four";
 
-var num = "4";
-
+var num = "4"; 
+// the above two vars are == (in value), but !=== (in type)
 var animals =["lion", "dog", "cat"];
 
 var car = { // this is an object
