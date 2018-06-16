@@ -7,18 +7,8 @@
         <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
     </head>
     <body>
-        <h1>The Psychic Game</h1>
-
-        <h4>Guess what letter I'm thinking of:</h4>
-        <h4>Wins:</h4>
-        <h4>Losses:</h4>
-        <h4>Guesses left:</h4>
-        <h4>Your guesses so far:</h4>
-
-        <!-- // Guess what letter I'm thinking of
-
-            // Wins: (# of times the user has guessed the letter correctly)
-            //Each of these will have their own divs and counters.
+        <!-- Wins: (# of times the user has guessed the letter correctly)
+            //Each of these will have their own divs as well as counters. <span> is another option.
 
             // Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
 
@@ -30,10 +20,20 @@
 
             // When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).  -->
 
-        <script type="text/javascript" src="assets/javascript/game.js">
-            
-            
-            
-            </script>
+        <h1>The Psychic Game</h1>
+
+        <h4>Guess what letter I'm thinking of</h4>
+        <!-- each of these will be tagged with an id for js manipulation -->
+        <!-- setting the # of wins losses to zero to start a game -->
+        <h4>Wins: <span id="wins">0</span></h4>
+
+        <!-- setting the # of wins losses to zero to start a game -->
+        <h4>Losses: <span id="losses">0</span></h4>
+        
+        <h4>Guesses left: <span id="remainingChances"></span></h4>
+        <h4>Your guesses so far: <span id="soFar"></span></h4>
+
+
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
     </body>
 </html>
