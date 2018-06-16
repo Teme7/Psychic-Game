@@ -15,7 +15,7 @@ var remainingChances = 9;
 // registers # wins, set at zero to start the game
 var wins = 0;
 
-// registers # losses
+// Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
 var losses = 0;
 
 // ------ function declaration --------
@@ -25,7 +25,7 @@ var newComputerChoice = function() {
     computerChoice  = letters[math.floor(Math.random()*26)];
 };
 
-// user's choices displayed
+// Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)
 var newLettersAttempted = function() {
     document.querySelector("#soFar").innerHTML = lettersAttempted.join(", ");
 };
@@ -43,8 +43,7 @@ var reset = function() {
     newLettersAttempted();
     newRemainingChances();
   };
-
-// registering keys user presses
+// registers keys the user press
 document.onkeydown = function(event) {
     remainingChances--;
   
@@ -54,12 +53,26 @@ document.onkeydown = function(event) {
     lettersAttempted.push(letter);
   
     // Then its going to run the update functions
-    updateGuessesLeft();
-    updateGuessesSoFar();
+    newRemainingChances();
+    newLettersAttempted();
 
+    //---condition for a win---
+     
+    // When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
     if(letter == computerChoice) {
         wins++; // gamer wins
         document.querySelector("#wins").innerHTML = wins;
+        
         reset(); // fresh start achieved by running reset function after a win/lose
+    }
+
+    //----condition for a loss---
+
+    // When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins). 
+    if(remainingChances == 0) {
+        losses++;
+        document.querySelector("#losses").innerHTML = losses;
+
+        reset();
     }
 }
