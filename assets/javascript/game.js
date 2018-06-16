@@ -20,4 +20,46 @@ var losses = 0;
 
 // ------ function declaration --------
 
-var 
+// random machine picks assigned
+var newComputerChoice = function() {
+    computerChoice  = letters[math.floor(Math.random()*26)];
+};
+
+// user's choices displayed
+var newLettersAttempted = function() {
+    document.querySelector("#soFar").innerHTML = lettersAttempted.join(", ");
+};
+
+// the countdown on display
+var newRemainingChances = function() {
+    document.querySelector("#remainingChances").innerHTML = remainingChances;
+};
+
+// calling the reset function
+var reset = function() {
+    remainingChances = 9;
+    lettersAttempted = [];
+    newComputerChoice();
+    newLettersAttempted();
+    newRemainingChances();
+  };
+
+// registering keys user presses
+document.onkeydown = function(event) {
+    remainingChances--;
+  
+    // changes all letters to lower case
+    var letter = String.fromCharCode(event.which).toLowerCase();
+  
+    lettersAttempted.push(letter);
+  
+    // Then its going to run the update functions
+    updateGuessesLeft();
+    updateGuessesSoFar();
+
+    if(letter == computerChoice) {
+        wins++; // gamer wins
+        document.querySelector("#wins").innerHTML = wins;
+        reset(); // fresh start achieved by running reset function after a win/lose
+    }
+}
